@@ -9,6 +9,7 @@ use pocketmine\level\{
 use pocketmine\level\sound\{BlazeShootSound, ClickSound, PopSound};
 use pocketmine\scheduler\Task;
 use pocketmine\tile\Sign;
+use pocketmine\tile\Tile;
 use pocketmine\Player;
 
 use xenialdan\apibossbar\BossBar;
