@@ -130,17 +130,6 @@ class Arena implements Listener{
             $status = str_replace("{sec}", $this->task->startTime, $this->plugin->getConfig()->get("WaitingStatus"));
         } else {
             $status = $this->plugin->getConfig()->get("StartingStatus");
-		}
-	}
- 
-    public function setEntry(Player $player, int $line, string $msg){
-        $entry = new ScorePacketEntry();
-        $packet = new SetScorePacket();
-
-        if(count($this->players) < 2){
-            $status = str_replace("{gamet}", $this->task->gameTime, $this->plugin->getConfig()->get("ArenaStatus"));
-        } else {
-            $status = $this->plugin->getConfig()->get("GameStatus");
         }
 
         $msg = str_replace([
