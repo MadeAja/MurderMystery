@@ -63,8 +63,6 @@ class Arena implements Listener{
 
     public $phase = 0;
 	
-    public $players;	
-
     public $setup = false;
     public $map = null;
 
