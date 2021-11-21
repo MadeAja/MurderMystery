@@ -226,17 +226,7 @@ class ArenaScheduler extends Task{
 
         $signText[1] = "§b{$this->plugin->map->getFolderName()} §7| §7[§b" . count($this->plugin->players) . "§7/§b16§7]";
 
-        switch($this->plugin->phase){
-            case Arena::PHASE_LOBBY:
-                if(count($this->plugin->players) >= 16){
-                    $signText[2] = "§cWaiting For More Players";
-                    $signText[3] = "";
-                } else {
-                    $signText[2] = "§cWaiting";
-                    $signText[3] = "";
-                }
-            break;			
-		     			
+        switch($this->plugin->phase){		
             case Arena::PHASE_LOBBY:
                 if(count($this->plugin->players) >= 16){
                     $signText[2] = "§cFull";
