@@ -54,10 +54,9 @@ use mm\tasks\{ArrowTask, CollideTask, CooldownTask, DespawnSwordEntity, SpawnGol
 
 class Arena implements Listener{
      
-    const PHASE_WAITING = 0;
-    const PHASE_LOBBY = 1;
-    const PHASE_GAME = 2;
-    const PHASE_RESTART = 3;
+    const PHASE_LOBBY = 0;
+    const PHASE_GAME = 1;
+    const PHASE_RESTART = 2;
 
     public static $bossbar;
     
@@ -84,6 +83,7 @@ class Arena implements Listener{
 
     public $startTime = 31;
     public $gameTime = 5 * 60;
+    public $restartTime = 5;
 
     public function __construct(MurderMystery $plugin, array $file){
         $this->plugin = $plugin;
@@ -138,9 +138,9 @@ class Arena implements Listener{
         }
 
         $msg = str_replace([
-            "{players}", "{innocents}", "{detec_status}", "{role}", "{map}", "{startt}", "{gamet}" ,"{status} " 
+            "{players}", "{innocents}", "{detec_status}", "{role}", "{map}", "{startt}", "{gamet}", "{restartt}", "{status} " 
         ], [
-            count($this->players), (count($this->players) - 1), $this->getDetectiveStatus(), $this->getRole($player), $this->map->getFolderName(), $this->task->startTime(), $this->task->gameTime(), $status
+            count($this->players), (count($this->players) - 1), $this->getDetectiveStatus(), $this->getRole($player), $this->map->getFolderName(), $this->task->startTime(), $this->task->gameTime(), $this->task->restartTime(), $status
         ], $msg);
 
         $entry->objectiveName = "MurderMystery";
@@ -180,10 +180,7 @@ class Arena implements Listener{
                 case Arena::PHASE_LOBBY:
                     $this->createScoreboard($player, "§l§eMURDER MYSTERY", $this->plugin->getConfig()->get("LobbyScoreboard"));
                 break;
-			    
-                case Arena::PHASE_WAITING:
-                    $this->createScoreboard($player, "§l§eMURDER MYSTERY", $this->plugin->getConfig()->get("WaitingScoreboard"));
-                break;			    
+			    		    
             }
         }
     }
@@ -356,7 +353,7 @@ class Arena implements Listener{
             $player->getInventory()->clearAll();
             $player->getArmorInventory()->clearAll();
             self::$bossbar = (new BossBar())->setPercentage(1);
-            self::$bossbar->setTitle(TextFormat::YELLOW . TextFormat::BOLD . "Playing" . TextFormat::WHITE . "MURDER" . TextFormat::WHITE . "MYSTERY" . TextFormat::GOLD . "on" . TextFormat::WHITE . "DCTX NETWORK" . TextFormat::RESET . TextFormat::WHITE);
+            self::$bossbar->setTitle(TextFormat::YELLOW . TextFormat::BOLD . "Playing" . TextFormat::WHITE . "MURDER" . TextFormat::WHITE . "MYSTERY" . TextFormat::GOLD . "on" . TextFormat::WHITE . "URSERVERNAME NETWORK" . TextFormat::RESET . TextFormat::WHITE);
             self::$bossbar->addPlayer($player);
             $player->getCursorInventory()->clearAll();
             unset($this->changeInv[$player->getName()]);
@@ -462,7 +459,7 @@ class Arena implements Listener{
         if($this->isPlayer($murderer)){
             $this->playSound($murderer, "random.levelup");
         }
-        $this->broadcastMessage($murderer, " §aYOU WIN! §6You have killed everyone!");
+        $this->broadcastMessage($murderer, "§aYOU WIN! §6You have killed everyone!");
         $this->broadcastTitle($murderer, "§6VICTORY!", "§7You have killed everyone!");
 
         $this->startRestart();
@@ -472,15 +469,15 @@ class Arena implements Listener{
         foreach($this->spectators as $spectator){
             if($this->deadMurderer !== $spectator){
                 $this->playSound($spectator, "random.levelup");
-                $this->broadcastMessage($spectator, " §aYOU WIN! §6The Murderer has been stopped!");
-                $this->broadcastTitle($spectator, "§6VICTORY!", "§7The Murderer has been stopped!");
+                $this->broadcastMessage($spectator, "§aYOU WIN! §6The Murderer has been stopped!");
+                $this->broadcastTitle($spectator, "§aVICTORY!", "§7The Murderer has been stopped!");
             }
         }
 
         foreach($this->players as $player){
             $this->playSound($player, "random.levelup");
-            $this->broadcastMessage($player, " §aYOU WIN! §6The Murderer has been stopped!");
-            $this->broadcastTitle($player, "§6VICTORY!", "§7The Murderer has been stopped!");
+            $this->broadcastMessage($player, "§aYOU WIN! §6The Murderer has been stopped!");
+            $this->broadcastTitle($player, "§aVICTORY!", "§7The Murderer has been stopped!");
         }
         $this->startRestart();
     }
@@ -540,7 +537,7 @@ class Arena implements Listener{
                 }
                 if($string == "start"){
                     $this->interactDelay[$player->getName()] = microtime(true) + 0.5;
-                    if(count($this->players) > 1){
+                    if(count($this->players) > 3){
                         $this->task->startTime = 10;
                         $this->setItem(0, 4, $player);
                     } else {
@@ -689,7 +686,7 @@ class Arena implements Listener{
             if($victim !== $this->getMurderer()){
                 $this->killPlayer($killer, "§eYou killed an innocent player!");
             }
-            $this->killPlayer($victim, "§eA player killed you!");
+            $this->killPlayer($victim, "§eA Player Killed You");
         }
     }
 
@@ -785,9 +782,9 @@ class Arena implements Listener{
                 $this->setItem(345, 4, $this->getMurderer());
                 foreach($this->players as $player){
                     if($player !== $this->getMurderer()){
-                        $player->addTitle("§cWatch out!", "§ethe murderer can find you eazy");
+                        $player->addTitle("§cWatch out!", "§eThe Murderer can Find survivors eazily!");
                     } else {
-                        $player->addTitle("§cYou got a compass!", "§eThe compass points to the last player!");
+                        $player->addTitle("§cYou Got A compass!", "§aYou can Find Survivors Eazily");
                     }
                 }
             }
@@ -876,7 +873,7 @@ class Arena implements Listener{
                 $this->setItem(0, 4, $ingame);
             }
             if($ingame !== $player){
-                $ingame->addTitle("§r§l§e", "§eA players has picked up the bow!");
+                $ingame->addTitle("§r§l§e", "§eA player has picked up the bow!");
                 $ingame->sendMessage("§eA player has picked up the bow!");
             }
         }
