@@ -50,7 +50,7 @@ class MurderMystery extends PluginBase implements Listener{
             }
             switch($args[0]){
                 case "help":
-                    $sender->sendMessage("§b/murdermystery help§f: §7Shows a list of available commands");
+                    $sender->sendMessage("§6/mm help§f: §7Shows a list of available commands");
                     if($sender->hasPermission("murdermystery.edit")){
                         $sender->sendMessage("§c/mm remove");
                         $sender->sendMessage("§c/mm create");
