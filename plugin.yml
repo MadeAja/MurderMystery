@@ -1,0 +1,11 @@
+name: MurderMystery
+version: 1.0-test
+api: 3.x.x
+author: Dantedevs
+main: mm\MurderMystery
+description: A PMMP MINIGAME MURDERMYSTERY
+
+commands:
+  murdermystery:
+    description: "MurderMysteryCMDS By DanteDevs"
+    aliases: [mm, mrd]
