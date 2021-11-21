@@ -130,8 +130,9 @@ class Arena implements Listener{
             $status = str_replace("{sec}", $this->task->startTime, $this->plugin->getConfig()->get("WaitingStatus"));
         } else {
             $status = $this->plugin->getConfig()->get("StartingStatus");
-        }
-	   
+		}
+	}
+ 
     public function setEntry(Player $player, int $line, string $msg){
         $entry = new ScorePacketEntry();
         $packet = new SetScorePacket();
