@@ -228,10 +228,15 @@ class ArenaScheduler extends Task{
 
         switch($this->plugin->phase){
             case Arena::PHASE_WAITING:
-                $signText[2] = "§cWaiting For More Players!";
-                $signText[3] = "";
-            break;
-			
+                if(count($this->plugin->players) >= 1){			
+                    $signText[2] = "§aWaiting For More Players!";
+                    $signText[3] = "";
+                } else {		   
+                    $signText[2] = "§cNeed More Players!";
+                    $signText[3] = "";
+		}
+            break;			
+		     			
             case Arena::PHASE_LOBBY:
                 if(count($this->plugin->players) >= 16){
                     $signText[2] = "§cFull";
@@ -239,7 +244,7 @@ class ArenaScheduler extends Task{
                 } else {
                     $signText[2] = "§aTap to join";
                     $signText[3] = "";
-                }
+		}
             break;
 
             case Arena::PHASE_GAME:
