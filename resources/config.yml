@@ -1,11 +1,10 @@
-## CREDITS TO LEYKEY
 Prefix: §l§cMM:
 #
 # Speed of gold spawning (sec)
 GoldSpawnRate: 3
 #
 # Gold spawns
-GoldSpawns: 3
+GoldSpawns: 16
 #
 # Waiting status
 WaitingStatus: §cWaiting for more players...
@@ -14,6 +13,8 @@ WaitingStatus: §cWaiting for more players...
 StartingStatus: Starting in {sec}s
 #
 # The scoreboard that gets displayed to players in the waiting lobby
+WaitingScoreboard:
+
 LobbyScoreboard: 
 - "§7§r"
 - "§fPlayers: §a{players}/16"
