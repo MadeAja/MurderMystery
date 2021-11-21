@@ -23,7 +23,6 @@ class ArenaScheduler extends Task{
     
     public $phase = 0;
 	
-    public $plugin;
     public $task;
     public $setup = false;
     public $map = null;
