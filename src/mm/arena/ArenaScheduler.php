@@ -240,3 +240,4 @@ class ArenaScheduler extends Task{
         $this->gameTime = 5 * 60;
         $this->restartTime = 5;
     }
+}
