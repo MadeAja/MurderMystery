@@ -25,9 +25,10 @@ class ArenaScheduler extends Task{
     public $phase = 0;
 	
     public $task;
-    public $setup = true;
+    public $waiting;
+    public $setup = false;
     public $map = null;
-    
+    	
     public $startTime = 31;
     public $gameTime = 5 * 60;
     public $restartTime = 5;
@@ -46,6 +47,15 @@ class ArenaScheduler extends Task{
 
         $this->plugin->scoreboard();
         switch($this->plugin->phase){
+            case Arena::PHASE_WAITING:
+                if(count($this->plugin->players) >= 1){
+                    switch($this->waiting){
+                        case 0:
+                            foreach($this->plugin->players as $player){
+                                $player->sendMessage("§cWaiting For More Players!");
+                        }
+                    break;
+			
             case Arena::PHASE_LOBBY:
                 if(count($this->plugin->players) >= 2){
                     switch($this->startTime){
@@ -217,6 +227,11 @@ class ArenaScheduler extends Task{
         $signText[1] = "§b{$this->plugin->map->getFolderName()} §7| §7[§b" . count($this->plugin->players) . "§7/§b16§7]";
 
         switch($this->plugin->phase){
+            case Arena::PHASE_WAITING:
+                $signText[2] = "§cWaiting For More Players!";
+                $signText[3] = "";
+            break;
+			
             case Arena::PHASE_LOBBY:
                 if(count($this->plugin->players) >= 16){
                     $signText[2] = "§cFull";
