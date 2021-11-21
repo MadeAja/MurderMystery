@@ -62,6 +62,8 @@ class Arena implements Listener{
     public $task;
 
     public $phase = 0;
+	
+    public $players;	
 
     public $setup = false;
     public $map = null;
@@ -591,7 +593,7 @@ class Arena implements Listener{
             foreach($this->players as $ingame){
                 $players[] = $ingame;
             }
-            $player[$player->getName()] = $players;
+            $players[$player->getName()] = $players;
             $target = $players[$player->getName()][$data];
 			if($target instanceof Player){
                 if($this->isPlaying($target)){
