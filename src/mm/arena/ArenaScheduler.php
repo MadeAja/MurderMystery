@@ -37,17 +37,9 @@ class ArenaScheduler extends Task{
         if($this->plugin->setup) return;
 
         $this->plugin->scoreboard();
-        switch($this->plugin->phase){
-            case Arena::PHASE_WAITING:
-                if(count($this->plugin->players) >= 1){
-                    switch($this->Waiting){
-                            foreach($this->plugin->players as $player){
-                                $player->sendMessage("§cWaiting For More . $this->waiting . Players");
-                }
-            break;                          
-                                  
+        switch($this->plugin->phase){           
             case Arena::PHASE_LOBBY:
-                if(count($this->plugin->players) >= 2){
+                if(count($this->plugin->players) >= 1){
                     switch($this->startTime){
                         case 30:
                             foreach($this->plugin->players as $player){
