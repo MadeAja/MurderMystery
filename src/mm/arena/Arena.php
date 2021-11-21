@@ -5,9 +5,11 @@ namespace mm\arena;
 use pocketmine\event\Listener;
 use pocketmine\block\Block;
 use pocketmine\item\Item;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\entity\Entity;
+use pocketmine\event\entity\EntityDamageByChildEntityEvent;
 use pocketmine\event\entity\{
     EntityLevelChangeEvent,
-    EntityDamageEvent,
     ProjectileHitBlockEvent,
     EntityDamageByEntityEvent,
     EntityDamageByChildEntityEvent,
