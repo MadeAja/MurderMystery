@@ -591,8 +591,8 @@ class Arena implements Listener{
             foreach($this->players as $ingame){
                 $players[] = $ingame;
             }
-            $players[$player->getName()] = $players;
-            $target = $players[$player->getName()][$data];
+            $players[player->getName()] = $players;
+            $target = $players[player->getName()][$data];
 			if($target instanceof Player){
                 if($this->isPlaying($target)){
                     $player->teleport($target);
