@@ -137,7 +137,7 @@ class Arena implements Listener{
         }
 
         $msg = str_replace([
-            "{players}", "{innocents}", "{detec_status}", "{role}", "{map}", "{status}" 
+            "{players}", "{innocents}", "{detec_status}", "{role}", "{map}", "{status}", "{sec} " 
         ], [
             count($this->players), (count($this->players) - 1), $this->getDetectiveStatus(), $this->getRole($player), $this->map->getFolderName(), $status
         ], $msg);
