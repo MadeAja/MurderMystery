@@ -5,4 +5,5 @@ branches:
 projects:
   MurderMystery:
     path: ""
+    icon: "icon.png"
 ...
