@@ -41,15 +41,8 @@ class ArenaScheduler extends Task{
             case Arena::PHASE_WAITING:
                 if(count($this->plugin->players) >= 1){
                     switch($this->Waiting){
-                        case 20:
                             foreach($this->plugin->players as $player){
                                 $player->sendMessage("§cWaiting For More . $this->waiting . Players");
-                            }
-                        break;
-
-                        case 10:
-                            foreach($this->plugin->players as $player){
-                                $player->sendMessage("§cWaiting For Players . $this->waiting . !");
                 }
             break;                          
                                   
