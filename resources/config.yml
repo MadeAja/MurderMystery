@@ -1,22 +1,3 @@
-#
-# MurderMystery plugin by LeyKey
-#
-# ========================
-# Discord: LeyKey#0001
-# Minecraft: LeyKeyy
-# YouTube: LeyKey
-# ========================
-#
-# {players} - Players in the game
-# {innocents} - Innocents in the game
-# {detec_status} - Status of the detective
-# {role} - The players' role
-# {map} - The map of the game
-# {status} - Status of the game (Waiting for players / Starting in)
-# {sec} - Time until the game starts
-# \n - Line break
-#
-# Prefix
 Prefix: §l§cMM§f:§r
 #
 # Speed of gold spawning (sec)
