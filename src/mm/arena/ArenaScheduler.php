@@ -53,11 +53,11 @@ class ArenaScheduler extends Task{
                         case 0:
                             foreach($this->plugin->players as $player){
                                 $player->sendMessage("§cWaiting For More Players!");
-                        }
-                    break;
+                            }
+                        break;
 			
             case Arena::PHASE_LOBBY:
-                if(count($this->plugin->players) >= 2){
+              if(count($this->plugin->players) >= 2){
                     switch($this->startTime){
                         case 30:
                             foreach($this->plugin->players as $player){
@@ -259,4 +259,3 @@ class ArenaScheduler extends Task{
         $this->gameTime = 5 * 60;
         $this->restartTime = 5;
     }
-}
