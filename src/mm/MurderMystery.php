@@ -55,10 +55,10 @@ class MurderMystery extends PluginBase implements Listener{
                         $sender->sendMessage("§c/mm remove");
                         $sender->sendMessage("§c/mm create");
                         $sender->sendMessage("§c/mm set");
-                        $sender->sendMessage("§c/mm join");
+                        $sender->sendMessage("§c/mm");
                         $sender->sendMessage("§c/mm savegames");
                     }
-                    $sender->sendMessage("§b/murdermystery join§f: §7Join an available game of murder mystery");
+                    $sender->sendMessage("§c/mm join");
                 break;
 
                 case "create":
@@ -68,7 +68,7 @@ class MurderMystery extends PluginBase implements Listener{
                     }
 
                     if(!isset($args[1])){
-                        $sender->sendMessage($this->prefix . "§7Use /murdermystery create <name>");
+                        $sender->sendMessage($this->prefix . "§7Use /mm create <name>");
                         break;
                     }
 
@@ -88,7 +88,7 @@ class MurderMystery extends PluginBase implements Listener{
                     }
 
                     if(!isset($args[1])){
-                        $sender->sendMessage($this->prefix . "§7Use /murdermystery remove <name>");
+                        $sender->sendMessage($this->prefix . "§7Use /mm remove <name>");
                         break;
                     }
 
@@ -119,7 +119,7 @@ class MurderMystery extends PluginBase implements Listener{
                     }
 
                     if(!isset($args[1])){
-                        $sender->sendMessage($this->prefix . "§7Use /murdermystery edit <name>");
+                        $sender->sendMessage($this->prefix . "§7Use /mm edit <name>");
                         break;
                     }
 
@@ -323,7 +323,7 @@ class MurderMystery extends PluginBase implements Listener{
             $game->data["gold"]["gold-" . $index] = (new Vector($block->getX(), $block->getY() + 1, $block->getZ()))->__toString();
             $player->sendMessage($this->prefix . "§7Gold spawn " . $index . " has been set to§6 " . round($block->getX()) . ", " . round($block->getY() + 1) . ", " . round($block->getZ()));
             if($index > ($max - 1)){
-                $player->sendMessage($this->prefix . "§7All gold spawns have been set!");
+                $player->sendMessage($this->prefix . "§cAll gold spawns have been set Nice!");
                 unset($this->gold[$player->getName()]);
                 return;
             }
