@@ -179,6 +179,10 @@ class Arena implements Listener{
                 case Arena::PHASE_LOBBY:
                     $this->createScoreboard($player, "§l§eMURDER MYSTERY", $this->plugin->getConfig()->get("LobbyScoreboard"));
                 break;
+			    
+                case Arena::PHASE_LOBBY:
+                    $this->createScoreboard($player, "§l§eMURDER MYSTERY", $this->plugin->getConfig()->get("WaitingScoreboard"));
+                break;			    
             }
         }
     }
