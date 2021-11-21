@@ -9,6 +9,7 @@ use pocketmine\level\{
 use pocketmine\level\sound\{BlazeShootSound, ClickSound, PopSound};
 use pocketmine\scheduler\Task;
 use pocketmine\tile\Sign;
+use pocketmine\Player;
 
 use xenialdan\apibossbar\BossBar;
 use mm\math\Vector;
@@ -25,7 +26,7 @@ class ArenaScheduler extends Task{
 
     public $restartData = [];
 
-    public function __construct(Game $plugin){
+    public function __construct(Arena $plugin){
         $this->plugin = $plugin;
     }
 
@@ -36,7 +37,7 @@ class ArenaScheduler extends Task{
 
         $this->plugin->scoreboard();
         switch($this->plugin->phase){
-            case Game::PHASE_LOBBY:
+            case Arena::PHASE_LOBBY:
                 if(count($this->plugin->players) >= 2){
                     switch($this->startTime){
                         case 30:
@@ -81,7 +82,7 @@ class ArenaScheduler extends Task{
                 }
             break;
 
-            case Game::PHASE_GAME:
+            case Arena::PHASE_GAME:
                 if($this->gameTime > 285 && $this->gameTime < 291){
                     foreach($this->plugin->players as $player){
                         $player->sendMessage("§eThe Murderer gets their sword in §c" . ($this->gameTime - 285) . "§e seconds");
@@ -149,7 +150,7 @@ class ArenaScheduler extends Task{
                 $this->gameTime--;
             break;
 
-            case Game::PHASE_RESTART:
+            case Arena::PHASE_RESTART:
                 switch($this->restartTime){
                     case 0:
                         foreach($this->plugin->players as $player){
@@ -207,7 +208,7 @@ class ArenaScheduler extends Task{
         $signText[1] = "§b{$this->plugin->map->getFolderName()} §7| §7[§b" . count($this->plugin->players) . "§7/§b16§7]";
 
         switch($this->plugin->phase){
-            case Game::PHASE_LOBBY:
+            case Arena::PHASE_LOBBY:
                 if(count($this->plugin->players) >= 16){
                     $signText[2] = "§cFull";
                     $signText[3] = "";
@@ -217,12 +218,12 @@ class ArenaScheduler extends Task{
                 }
             break;
 
-            case Game::PHASE_GAME:
+            case Arena::PHASE_GAME:
                 $signText[2] = "§cAlready started";
                 $signText[3] = "";
             break;
 
-            case Game::PHASE_RESTART:
+            case Arena::PHASE_RESTART:
                 $signText[2] = "§6Restarting...";
                 $signText[3] = "";
             break;
