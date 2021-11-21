@@ -18,7 +18,7 @@ LobbyScoreboard:
 - "§7§r"
 - "§fPlayers: §a{players}/16"
 - "§r"
-- "{status}"
+- "starting in: SOON"
 - "§r§7"
 - "§fMap: §a{map}"
 - "§b"
@@ -28,6 +28,7 @@ GameScoreboard:
 - "§fRole: §a{role}"
 - "§r"
 - "§fInnocents left: §a{innocents}"
+- "§fTime Left: §aSOON"
 - "§a§r"
 - "§fDetective: §a{detec_status}"
 - "§r§7"
@@ -47,4 +48,3 @@ RestartScoreboard:
 - "§fMap: §a{map}"
 - "§b"
 - "§eplay.yourserver.net"
-## CREDITS TO LEKEY
