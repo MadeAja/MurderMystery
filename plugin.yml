@@ -8,4 +8,4 @@ description: A PMMP MINIGAME MURDERMYSTERY
 commands:
   murdermystery:
     description: "MurderMysteryCMDS By DanteDevs"
-    aliases: [mm, mrd]
+    aliases: [mm, mrd, murder]
