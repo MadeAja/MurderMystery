@@ -5,6 +5,7 @@ namespace mm\tasks;
 use pocketmine\scheduler\Task;
 use mm\arena\Arena;
 use pocketmine\level\Position;
+use pocketmine\Player;
 
 class UpdatePlayerPositionTask extends Task{
 
