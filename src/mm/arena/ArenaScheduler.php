@@ -9,9 +9,7 @@ use pocketmine\level\{
 use pocketmine\level\sound\{BlazeShootSound, ClickSound, PopSound};
 use pocketmine\scheduler\Task;
 use pocketmine\tile\Sign;
-use pocketmine\tile\Tile;
 use pocketmine\Player;
-use pocketmine\plugin\Plugin;
 
 use xenialdan\apibossbar\BossBar;
 use mm\math\Vector;
@@ -21,19 +19,11 @@ class ArenaScheduler extends Task{
     protected $plugin;
 
     public static $bossbar;
-    
-    public $phase = 0;
-	
-    public $task;
-    public $waiting;
-    public $setup = false;
-    public $map = null;
-    	
+
     public $startTime = 31;
     public $gameTime = 5 * 60;
     public $restartTime = 5;
-    
-    public $players = [];
+
     public $restartData = [];
 
     public function __construct(Arena $plugin){
@@ -47,17 +37,8 @@ class ArenaScheduler extends Task{
 
         $this->plugin->scoreboard();
         switch($this->plugin->phase){
-            case Arena::PHASE_WAITING:
-                if(count($this->plugin->players) >= 1){
-                    switch($this->waiting){
-                        case 0:
-                            foreach($this->plugin->players as $player){
-                                $player->sendMessage("§cWaiting For More Players!");
-                            }
-                        break;
-			
             case Arena::PHASE_LOBBY:
-              if(count($this->plugin->players) >= 2){
+                if(count($this->plugin->players) >= 2){
                     switch($this->startTime){
                         case 30:
                             foreach($this->plugin->players as $player){
