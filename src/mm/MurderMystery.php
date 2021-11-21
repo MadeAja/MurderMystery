@@ -2,6 +2,8 @@
 
 namespace mm;
 
+## CREDITS TO LEYKEY:D
+
 use pocketmine\plugin\PluginBase;
 use pocketmine\command\{CommandSender, Command};
 use pocketmine\Player;
