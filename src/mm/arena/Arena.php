@@ -87,7 +87,7 @@ class Arena implements Listener{
 
         $this->plugin->getScheduler()->scheduleRepeatingTask(new CooldownTask($this), 2);
         $this->plugin->getScheduler()->scheduleRepeatingTask(new UpdatePlayerPositionTask($this), 2);
-        $this->plugin->getScheduler()->scheduleRepeatingTask($this->task = new GameTask($this), 20);
+        $this->plugin->getScheduler()->scheduleRepeatingTask($this->task = new ArenaScheduler($this), 20);
 
         $spawnRate = $this->plugin->getConfig()->get("GoldSpawnRate");
         if(is_numeric($spawnRate)){
@@ -164,15 +164,15 @@ class Arena implements Listener{
 
             $this->removeScoreboard($player);
             switch($this->phase){
-                case Game::PHASE_GAME:
+                case Arena::PHASE_GAME:
                     $this->createScoreboard($player, "§l§eMURDER MYSTERY", $this->plugin->getConfig()->get("GameScoreboard"));
                 break;
 
-                case Game::PHASE_RESTART:
+                case Arena::PHASE_RESTART:
                     $this->createScoreboard($player, "§l§eMURDER MYSTERY", $this->plugin->getConfig()->get("RestartScoreboard"));
                 break;
 
-                case Game::PHASE_LOBBY:
+                case Arena::PHASE_LOBBY:
                     $this->createScoreboard($player, "§l§eMURDER MYSTERY", $this->plugin->getConfig()->get("LobbyScoreboard"));
                 break;
             }
