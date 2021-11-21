@@ -22,6 +22,7 @@ use pocketmine\event\player\{
     PlayerChatEvent,
     PlayerDropItemEvent
 };
+use pocketmine\inventory\Inventory;
 use pocketmine\event\inventory\InventoryPickupItemEvent;
 use pocketmine\level\{
     Level,
