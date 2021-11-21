@@ -20,8 +20,10 @@ class ArenaScheduler extends Task{
 
     public static $bossbar;
     
-    public $setup;
-    public $map;
+    public $phase = 0;
+		
+    public $setup = false;
+    public $map = null;
     
     public $startTime = 31;
     public $gameTime = 5 * 60;
