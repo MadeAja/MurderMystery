@@ -53,10 +53,11 @@ use mm\math\{Vector, SwordEntity};
 use mm\tasks\{ArrowTask, CollideTask, CooldownTask, DespawnSwordEntity, SpawnGoldTask, UpdatePlayerPositionTask};
 
 class Arena implements Listener{
-
-    const PHASE_LOBBY = 0;
-    const PHASE_GAME = 1;
-    const PHASE_RESTART = 2;
+     
+    const PHASE_WAITING = 0;
+    const PHASE_LOBBY = 1;
+    const PHASE_GAME = 2;
+    const PHASE_RESTART = 3;
 
     public static $bossbar;
     
