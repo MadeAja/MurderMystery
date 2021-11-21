@@ -59,7 +59,7 @@ RestartScoreboard:
 - "§fRole: §aSpectator"
 - "§r"
 - "§fInnocents left: §a0"
-- "§fTime Left: §a0"
+- "§fRestarting in: {restartt}"
 - "§a§r"
 - "§fDetective: §a{detec_status}"
 - "§r§7"
