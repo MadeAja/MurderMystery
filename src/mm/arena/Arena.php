@@ -139,7 +139,7 @@ class Arena implements Listener{
         $msg = str_replace([
             "{players}", "{innocents}", "{detec_status}", "{role}", "{map}", "{startt}", "{gamet}" ,"{status} " 
         ], [
-            count($this->players), (count($this->players) - 1), $this->getDetectiveStatus(), $this->getRole($player), $this->map->getFolderName(), $this->getstartTime(), $this->getgameTime(), $status
+            count($this->players), (count($this->players) - 1), $this->getDetectiveStatus(), $this->getRole($player), $this->map->getFolderName(), $this->task->startTime(), $this->task->gameTime(), $status
         ], $msg);
 
         $entry->objectiveName = "MurderMystery";
