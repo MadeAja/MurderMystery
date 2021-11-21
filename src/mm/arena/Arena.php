@@ -777,7 +777,7 @@ class Arena implements Listener{
                 $this->setItem(345, 4, $this->getMurderer());
                 foreach($this->players as $player){
                     if($player !== $this->getMurderer()){
-                        $player->addTitle("§cWatch out!", "§eThe murderer got a compass!");
+                        $player->addTitle("§cWatch out!", "§ethe murderer can find you eazy");
                     } else {
                         $player->addTitle("§cYou got a compass!", "§eThe compass points to the last player!");
                     }
