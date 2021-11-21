@@ -1,7 +1,7 @@
 name: MurderMystery
-version: 1.0-test
+version: 1.0
 api: 3.x.x
-author: Dantedevs
+author: Dantedevs (Credits: Leykey)
 main: mm\MurderMystery
 description: A PMMP MINIGAME MURDERMYSTERY
 
