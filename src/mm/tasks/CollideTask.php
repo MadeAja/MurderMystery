@@ -4,7 +4,7 @@ namespace mm\tasks;
 
 use pocketmine\scheduler\Task;
 use mm\arena\Arena;
-use mm\utils\SwordEntity;
+use mm\math\SwordEntity;
 
 class CollideTask extends Task{
 
