@@ -11,6 +11,7 @@ use pocketmine\scheduler\Task;
 use pocketmine\tile\Sign;
 use pocketmine\tile\Tile;
 use pocketmine\Player;
+use pocketmine\plugin\Plugin;
 
 use xenialdan\apibossbar\BossBar;
 use mm\math\Vector;
@@ -24,7 +25,7 @@ class ArenaScheduler extends Task{
     public $phase = 0;
 	
     public $task;
-    public $setup = false;
+    public $setup = true;
     public $map = null;
     
     public $startTime = 31;
