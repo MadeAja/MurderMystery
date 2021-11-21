@@ -63,9 +63,7 @@ class Arena implements Listener{
     public $task;
 
     public $phase = 0;
-	
-    public $arrow	
-	
+		
     public $setup = false;
     public $map = null;
 
@@ -76,6 +74,7 @@ class Arena implements Listener{
     public $interactDelay = [];
     public $changeInv = [];
 
+    public $arrow;	
     public $shooter;
     public $murderer;
     public $detective;
