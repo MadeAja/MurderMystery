@@ -21,11 +21,10 @@ class ArenaScheduler extends Task{
 
     public static $bossbar;
     
-    public $plugin;
-    public $task;	
-	
     public $phase = 0;
-		
+	
+    public $plugin;
+    public $task;
     public $setup = false;
     public $map = null;
     
