@@ -114,14 +114,14 @@ class MurderMystery extends PluginBase implements Listener{
                     $sender->sendMessage($this->prefix . "§7" . $args[1] . "§r§7 has been removed!");
                 break;
 
-                case "edit":
-                    if(!$sender->hasPermission("murdermystery.edit")){
+                case "set":
+                    if(!$sender->hasPermission("murdermystery.set")){
                         $sender->sendMessage($this->noPerms);
                         break;
                     }
 
                     if(!isset($args[1])){
-                        $sender->sendMessage($this->prefix . "§7Use /mm edit <name>");
+                        $sender->sendMessage($this->prefix . "§7Use /mm set <name>");
                         break;
                     }
 
