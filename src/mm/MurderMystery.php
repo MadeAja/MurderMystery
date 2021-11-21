@@ -45,18 +45,18 @@ class MurderMystery extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $cmd, string $str, array $args) : bool{
         if(strtolower($cmd) == "murdermystery"){
             if(count($args) == 0){
-                $sender->sendMessage("§7Use §b/murdermystery help");
+                $sender->sendMessage("§7Use §f/mm help");
                 return true;
             }
             switch($args[0]){
                 case "help":
                     $sender->sendMessage("§b/murdermystery help§f: §7Shows a list of available commands");
                     if($sender->hasPermission("murdermystery.edit")){
-                        $sender->sendMessage("§b/murdermystery create <name>§f: §7Create a new game of murder mystery");
-                        $sender->sendMessage("§b/murdermystery remove <name>§f: §7Remove a game of murder mystery");
-                        $sender->sendMessage("§b/murdermystery edit <name>§f: §7Edit a game of murder mystery");
-                        $sender->sendMessage("§b/murdermystery list§f: §7Shows a list of murder mystery games");
-                        $sender->sendMessage("§b/murdermystery savegames§f: §7Save all murder mystery games");
+                        $sender->sendMessage("§c/mm remove");
+                        $sender->sendMessage("§c/mm create");
+                        $sender->sendMessage("§c/mm set");
+                        $sender->sendMessage("§c/mm join");
+                        $sender->sendMessage("§c/mm savegames");
                     }
                     $sender->sendMessage("§b/murdermystery join§f: §7Join an available game of murder mystery");
                 break;
@@ -138,8 +138,8 @@ class MurderMystery extends PluginBase implements Listener{
                     }
 
                     $sender->sendMessage("§l§7-= §cMurder Mystery §7=-");
-                    $sender->sendMessage("§6help §f: §7View a list of available setup commands");
-                    $sender->sendMessage("§6done §f: §7Leave setup mode");
+                    $sender->sendMessage("§chelp §f: §7View a list of available setup commands");
+                    $sender->sendMessage("§cdone §f: §7Leave setup mode");
                     $this->editors[$sender->getName()] = $this->games[$args[1]];
                 break;
 
