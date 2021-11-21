@@ -19,7 +19,8 @@ class ArenaScheduler extends Task{
     protected $plugin;
 
     public static $bossbar;
-
+    
+    public $waiting;
     public $startTime = 31;
     public $gameTime = 5 * 60;
     public $restartTime = 5;
@@ -39,12 +40,20 @@ class ArenaScheduler extends Task{
         switch($this->plugin->phase){
             case Arena::PHASE_WAITING:
                 if(count($this->plugin->players) >= 1){
-                   foreach($this->plugin->players as $player){
-                       $player->sendMessage("Waiting For More Players");
-                            
-                   }
-               break;
-                           
+                    switch($this->Waiting){
+                        case 20:
+                            foreach($this->plugin->players as $player){
+                                $player->sendMessage("§cWaiting For More . $this->waiting . Players");
+                            }
+                        break;
+
+                        case 10:
+                            foreach($this->plugin->players as $player){
+                                $player->sendMessage("§cWaiting For Players . $this->waiting . !");
+                            }
+                        break;
+                    }                                
+                                  
             case Arena::PHASE_LOBBY:
                 if(count($this->plugin->players) >= 2){
                     switch($this->startTime){
