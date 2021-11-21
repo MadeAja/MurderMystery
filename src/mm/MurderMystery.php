@@ -199,13 +199,13 @@ class MurderMystery extends PluginBase implements Listener{
             switch($args[0]){
                 case "help":
                     $player->sendMessage("§l§7-= §cMurder Mystery §7=-");
-                    $player->sendMessage("§6help§f: §7Shows a list of available setup commands");
-                    $player->sendMessage("§6map <name>§f: §7Set the map");
-                    $player->sendMessage("§6lobby§f: §7Set waiting lobby");
-                    $player->sendMessage("§6spawn§f: §7Set the spawn positions");
-                    $player->sendMessage("§6gold§f: §7Set the gold spawn positions");
-                    $player->sendMessage("§6joinsign§f: §7Set the joinsign for the game");
-                    $player->sendMessage("§6enable§f: §7Enable the game");
+                    $player->sendMessage("§fhelp§f: §7Shows a list of available setup commands");
+                    $player->sendMessage("§cmap <name>§f: §7Set the map");
+                    $player->sendMessage("§clobby§f: §7Set waiting lobby");
+                    $player->sendMessage("§cspawn§f: §7Set the spawn positions");
+                    $player->sendMessage("§cgold§f: §7Set the gold spawn positions");
+                    $player->sendMessage("§cjoinsign§f: §7Set the joinsign for the game");
+                    $player->sendMessage("§cenable§f: §7Enable the game");
                 break;
 
                 case "map":
