@@ -20,11 +20,14 @@ class ArenaScheduler extends Task{
 
     public static $bossbar;
     
+    public $setup;
+    public $map;
+    
     public $startTime = 31;
     public $gameTime = 5 * 60;
     public $restartTime = 5;
     
-    public $player = [];
+    public $players = [];
     public $restartData = [];
 
     public function __construct(Arena $plugin){
