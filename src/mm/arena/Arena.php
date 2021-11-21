@@ -13,6 +13,7 @@ use pocketmine\event\entity\{
     EntityDamageByChildEntityEvent,
     ProjectileLaunchEvent,
     EntityInventoryChangeEvent
+	   
 };
 use pocketmine\event\player\{
     PlayerInteractEvent,
@@ -62,6 +63,8 @@ class Arena implements Listener{
     public $task;
 
     public $phase = 0;
+	
+    public $arrow	
 	
     public $setup = false;
     public $map = null;
