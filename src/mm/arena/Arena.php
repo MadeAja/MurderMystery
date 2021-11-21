@@ -35,6 +35,7 @@ use pocketmine\network\mcpe\protocol\types\DimensionIds;
 use pocketmine\math\Vector3;
 use pocketmine\entity\Entity;
 use pocketmine\nbt\tag\StringTag;
+use pocketmine\utils\TextFormat;
 
 use pocketmine\network\mcpe\protocol\RemoveObjectivePacket;
 use pocketmine\network\mcpe\protocol\SetDisplayObjectivePacket;
