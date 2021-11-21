@@ -180,7 +180,7 @@ class Arena implements Listener{
                     $this->createScoreboard($player, "§l§eMURDER MYSTERY", $this->plugin->getConfig()->get("LobbyScoreboard"));
                 break;
 			    
-                case Arena::PHASE_LOBBY:
+                case Arena::PHASE_WAITING:
                     $this->createScoreboard($player, "§l§eMURDER MYSTERY", $this->plugin->getConfig()->get("WaitingScoreboard"));
                 break;			    
             }
@@ -265,7 +265,7 @@ class Arena implements Listener{
 		$lobby->setNamedTagEntry(new StringTag("MurderMystery", "lobby"));
 
         $start = Item::get(76, 0, 1);
-        $start->setCustomName("§r§l§bStart Game§r");
+        $start->setCustomName("§r§l§cForce Start§r");
 		$start->setNamedTagEntry(new StringTag("MurderMystery", "start"));
 
         $inv->setItem(8, $lobby);
