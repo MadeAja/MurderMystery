@@ -42,8 +42,8 @@ class ArenaScheduler extends Task{
                    foreach($this->plugin->players as $player){
                        $player->sendMessage("Waiting For More Players");
                             
-                            }
-                        break;
+                   }
+               break;
                            
             case Arena::PHASE_LOBBY:
                 if(count($this->plugin->players) >= 2){
