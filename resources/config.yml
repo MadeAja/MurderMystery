@@ -1,10 +1,11 @@
+## CODE BY DANTEDEV
 Prefix: §l§cMM:
 #
 # Speed of gold spawning (sec)
-GoldSpawnRate: 3
+GoldSpawns: 16
 #
 # Gold spawns
-GoldSpawns: 16
+GoldSpawnRate: 3
 #
 # Waiting status
 WaitingStatus: §cWaiting for more players...
@@ -22,8 +23,6 @@ LobbyScoreboard:
 - "§fMap: §a{map}"
 - "§b"
 - "§eplay.yourserver.net"
-#
-# The scoreboard that gets displayed to players during a game
 GameScoreboard:
 - "§7§r"
 - "§fRole: §a{role}"
@@ -48,3 +47,4 @@ RestartScoreboard:
 - "§fMap: §a{map}"
 - "§b"
 - "§eplay.yourserver.net"
+## CODE BY DANTEDEVS
