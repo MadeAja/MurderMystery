@@ -77,7 +77,7 @@ class MurderMystery extends PluginBase implements Listener{
                         break;
                     }
 
-                    $this->games[$args[1]] = new Game($this, []);
+                    $this->games[$args[1]] = new Arena($this, []);
                     $sender->sendMessage($this->prefix . "§7" . $args[1] . "§r§7 has been created!");
                 break;
 
