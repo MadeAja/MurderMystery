@@ -13,4 +13,6 @@ CREDITS TO THE OWNER: LEYKEY
 # V3.0 UPDATE SOON:
 - HYPIXEL MEASAGES
 - BOSSBAR CHANGE
+- ADDDED {restartt} for the scoreboard
+- restartt is the restartime
 ------------------------------------
